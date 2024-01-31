@@ -4,13 +4,21 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(167, 201, 167);
+  background-color: white;
+  padding-inline: 200px;
+  padding-top: 200px;
 }
 
 .header {
   padding: 20;
   text-align: center;
   font-size: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  background-color: white;
 }
 
 .row {
@@ -18,9 +26,219 @@ body {
   display: flex;
 }
 
+.event {
+  width: fit-content;
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.event:hover {
+  border: none;
+  background-color: rgb(238, 253, 238);
+  /* border-radius: 10px; */
+  transition: 0.3s;
+  color: rgb(0, 67, 0);
+}
+
+.selected {
+  background-color: rgb(238, 253, 238);
+  border-radius: 10px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 12rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: rgb(0, 67, 0);
+}
+
 .column {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   padding: 10px;
+  margin: auto;
+  margin-top: 0;
+}
+
+.form-container {
+  display: flex;
+  justify-content: end;
+}
+
+form {
+  display: grid;
+  align-items: center;
+  gap: 1.2rem;
+  grid-template-columns: 1fr 12rem;
+  padding: 50px;
+}
+
+.form-add-musician {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1.6rem;
+  padding: 1.2rem;
+  margin-left: 40px;
+}
+
+.filter-form {
+  padding: 5px;
+  width: 300px;
+}
+
+.open-form {
+  border-radius: 5px;
+  background-color: rgb(221, 248, 221);
+}
+
+.new-event {
+  border-radius: 5px;
+  background-color: rgb(221, 248, 221);
+  padding-top: 5px;
+}
+
+.button {
+  background-color: rgb(212, 184, 248);
+  color: #343a40;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: fit-content;
+  height: fit-content;
+}
+
+form .button {
+  margin-top: 0.6rem;
+  grid-column: 2;
+}
+
+.list-item {
+  height: fit-content;
+  align-items: center;
+}
+
+.unexpanded-list-item {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  width: 200px;
+  align-items: center;
+}
+
+.list-item button {
+  height: 25px;
+}
+
+.location-list {
+  border-bottom-style: solid;
+  border-color: green;
+}
+
+.location-list:hover {
+  background-color: rgb(227, 254, 227);
+  transition: 0.3s;
+}
+
+.unexpanded {
+  display: flex;
+  width: 180px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.unexpanded h3,
+h2 {
+  margin: 5px;
+}
+
+.button-not-open {
+  background-color: rgb(212, 184, 248);
+  color: #343a40;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  padding: 0.7rem;
+  text-align: center;
+  border: 1px solid rgb(191, 245, 191);
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.button:hover,
+.button-not-open:hover {
+  background-color: rgb(109, 74, 155);
+  transition: 0.3s;
+  color: white;
+}
+
+.event-delete {
+  margin: 1px;
+  justify-self: end;
+  padding: 10px;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+}
+
+.event-close {
+  grid-column: 2;
+  width: fit-content;
+  justify-self: end;
+}
+
+h3 {
+  padding: 5px;
+}
+
+.event-list-container {
+  border-radius: 10px;
+  background-color: rgb(221, 248, 221);
+  padding: 10px;
+}
+
+select {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.musician:hover {
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.musician-details {
+  font-size: smaller;
+  font-weight: bold;
+  background-color: rgb(221, 248, 221);
+  width: fit-content;
+  padding: 1px;
+  text-align: center;
+}
+
+.form-close {
+  grid-column: 2;
+  width: fit-content;
+  height: fit-content;
+  justify-self: end;
+}
+
+.form-close:hover {
+  cursor: pointer;
 }
