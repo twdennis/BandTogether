@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import { initialMusicianList } from "./initialMusicianList";
 
 import "./styles.css";
-import { LocationFilter } from "./LocationFilter";
 import { FormNewEvent } from "./FormNewEvent";
 import { EventList } from "./EventList";
 import { FormNewMusician } from "./FormNewMusician";
 import { Title } from "./Title";
+import { FilteredBy } from "./FilteredBy";
+import { InitialEvents } from "./InitialEvents";
 
 export default function App() {
   const [musicians, setMusicians] = useState(initialMusicianList);
   const [bandMembersByEvent, setBandMembersByEvent] = useState({});
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState(InitialEvents);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   function handleAddBandMember(eventId, musician) {
@@ -65,7 +66,7 @@ export default function App() {
       </div>
       <div className="row">
         <div className="column">
-          <LocationFilter
+          <FilteredBy
             musicians={musicians}
             onAddBandMember={handleAddBandMember}
             selectedEventId={selectedEvent?.eventId}

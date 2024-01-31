@@ -1,3 +1,3 @@
 export function Title() {
-  return <h1>BandTogether</h1>;
+  return <h1>Band<span style={{color: "green"}}>Together</span></h1>;
 }

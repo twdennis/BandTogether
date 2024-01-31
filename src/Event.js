@@ -19,23 +19,27 @@ export function Event({
   );
 
   return (
-    <div className={isSelected ? "selected" : ""}>
+    <div
+      className={isSelected ? "selected" : "event"}
+      onClick={!isSelected ? () => onSelectEvent(event) : undefined}
+    >
       <div>
         <h2>{event.eventName}</h2>
         {isSelected && (
           <div>
-            <h2>{event.eventDate}</h2>
+            <h3>{event.eventDate}</h3>
             <h3>{event.eventLocation}</h3>
             <ul>
               {musiciansForEvent.map((musician) => (
                 <li key={musician.id}>
                   {musician.firstName} {musician.lastName}
                   <span
+                    style={{ cursor: "pointer" }}
                     onClick={() =>
                       onDeleteBandMember(event.eventId, musician.id)
                     }
                   >
-                    ❌
+                    &nbsp;&nbsp;➖
                   </span>
                 </li>
               ))}
@@ -43,12 +47,24 @@ export function Event({
           </div>
         )}
       </div>
-      <button onClick={() => onSelectEvent(event)}>
-        {!isSelected ? "Select" : "Close"}
-      </button>
-      {isSelected && (
-        <button onClick={() => onDeleteEvent(event.eventId)}>Delete</button>
-      )}
+      <>
+        {isSelected && (
+          <>
+            <h2
+              className="event-delete"
+              onClick={() => onSelectEvent(event)}
+            >
+              ⛌
+            </h2>
+            <button
+              className="button event-close"
+              onClick={() => onDeleteEvent(event.eventId)}
+            >
+              Delete
+            </button>
+          </>
+        )}
+      </>
     </div>
   );
 }
